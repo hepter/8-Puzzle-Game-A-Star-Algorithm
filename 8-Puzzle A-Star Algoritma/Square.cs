@@ -31,7 +31,7 @@ namespace _8_Puzzle_A_Star_Algoritma
         public Square()
         {  
             InitializeComponent();
-            label1.Text = "0"; 
+            label1.Text = "0";
             WireAllControls(this);
         }
 
@@ -62,6 +62,9 @@ namespace _8_Puzzle_A_Star_Algoritma
           
         }
 
-       
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

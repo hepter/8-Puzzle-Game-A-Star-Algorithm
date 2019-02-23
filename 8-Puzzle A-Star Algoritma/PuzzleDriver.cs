@@ -57,32 +57,19 @@ namespace _8_Puzzle_A_Star_Algoritma
             Point coor= obje.FindForm().PointToClient(obje.Parent.PointToScreen(obje.Location));
 
             if (coor.X+validateLenght>ParentObje.Location.X && coor.X+validateLenght<ParentObje.Location.X+volume)
-            {
                 x = 0;
-            }
             else if (coor.X+validateLenght>ParentObje.Location.X + volume&& coor.X+validateLenght<ParentObje.Location.X+(volume*2))
-            {
                 x = 1;
-            }
-        
             else if  (coor.X+validateLenght>ParentObje.Location.X + (volume*2)&& coor.X+validateLenght<ParentObje.Location.X+(volume*3))
-            {
                 x = 2;
-            }
 
             if (coor.Y+validateLenght>ParentObje.Location.Y && coor.Y+validateLenght<ParentObje.Location.Y+volume)
-            {
                 y = 0;
-            }
             else if (coor.Y+validateLenght>ParentObje.Location.Y + volume && coor.Y+validateLenght<ParentObje.Location.Y+(volume*2))
-            {
                 y = 1;
-            }
-        
             else if  (coor.Y+validateLenght>ParentObje.Location.Y + (volume*2) && coor.Y+validateLenght<ParentObje.Location.Y+(volume*3))
-            {
                 y = 2;
-            }
+            
             return new Point(x,y);
         }
 
@@ -90,22 +77,19 @@ namespace _8_Puzzle_A_Star_Algoritma
         {
             Point NewlocOrder = obje.GetEmptyWayLocOrder();
             Point locOrder = obje.GetLocOrder();
+
             if (locOrder.X-1==NewlocOrder.X && locOrder.Y==NewlocOrder.Y)
-            {
                 obje.SlideMove(MoveWay.Left);
-            }
+            
             else if (locOrder.X+1==NewlocOrder.X && locOrder.Y==NewlocOrder.Y)
-            {
                 obje.SlideMove(MoveWay.Right);
-            }
+            
             else if (locOrder.X==NewlocOrder.X && locOrder.Y-1==NewlocOrder.Y)
-            {
                 obje.SlideMove(MoveWay.Up);
-            }
+            
             else if (locOrder.X==NewlocOrder.X && locOrder.Y+1==NewlocOrder.Y)
-            {
                 obje.SlideMove(MoveWay.Down);
-            }
+            
         }
 
         public static Point GetEmptyWayLocOrder(this Control obje)
@@ -117,27 +101,10 @@ namespace _8_Puzzle_A_Star_Algoritma
                 for (int j = 0; j < 3; j++)
                 {
                     if (tlp.GetControlFromPosition(i,j)==null)
-                    {
                         return new Point(i, j);
-                    }
                 }
                 
             }
-            //for (int i = loc.X-1; i < loc.X; i+=2)
-            //{
-            //    for (int j = loc.Y; j < loc.Y; j+=2)
-            //    {
-            //        if ((i<0||i>2)||(j<0||j>2))
-            //        {
-            //            continue;
-            //        }
-
-            //        if (tlp.GetControlFromPosition(i,j)==null)
-            //        {
-            //            return new Point(i,j);
-            //        }
-            //    }
-            //}
             return new Point(2,2);
         }
 

@@ -38,9 +38,9 @@
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Blue;
+            this.button1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(50, 50);
             this.button1.TabIndex = 0;
@@ -53,13 +53,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(2, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.MinimumSize = new System.Drawing.Size(46, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "9";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // Square
             // 
@@ -67,7 +68,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Square";
             this.Size = new System.Drawing.Size(50, 50);
             this.ResumeLayout(false);

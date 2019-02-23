@@ -85,7 +85,7 @@
             // 
             this.n_Puzzle1.Location = new System.Drawing.Point(2, 9);
             this.n_Puzzle1.Name = "n_Puzzle1";
-            this.n_Puzzle1.Size = new System.Drawing.Size(402, 319);
+            this.n_Puzzle1.Size = new System.Drawing.Size(320, 320);
             this.n_Puzzle1.TabIndex = 5;
             // 
             // Form1

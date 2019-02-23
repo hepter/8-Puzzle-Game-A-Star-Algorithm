@@ -14,6 +14,9 @@ namespace _8_Puzzle_A_Star_Algoritma
     public partial class N_Puzzle : UserControl
     {
         public event EventHandler SlideEvent;
+        private bool isBusy;
+        
+        public bool IsBusy { get => isBusy; set => isBusy = value; }
 
         public N_Puzzle()
         {
@@ -22,19 +25,28 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         private void BoxClick_Event(object sender, EventArgs e)
         {
-            (sender as Square).SlideMove();
+            var s=(sender as Square);
+            s.Color = Color.Orange;
+            IsBusy = true;
+            s.SlideMove();
+            IsBusy = false;
+            s.Color = Color.DeepSkyBlue;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine(square8.GetEmptyWayLocOrder());
-            square6.SlideMove();
-            
-        }
 
         private void N_Puzzle_Load(object sender, EventArgs e)
         {
            
+        }
+
+        private void square8_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
