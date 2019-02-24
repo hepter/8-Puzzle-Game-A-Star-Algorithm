@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.Emf;
+using _8_Puzzle_A_Star_Algoritma.Puzzle;
 using Timer = System.Windows.Forms.Timer;
 
 
@@ -83,8 +84,33 @@ namespace _8_Puzzle_A_Star_Algoritma
         private void button1_Click_1(object sender, EventArgs e)
         {
             var aa = n_Puzzle1.GetSolveViaAStar();
+            flowLayoutPanel1.Controls.Clear();
+
+            foreach (var way in aa)
+            {
+                PictureBox pic = new PictureBox();
+                pic.Size = new Size(50,50);
+                pic.BackgroundImageLayout = ImageLayout.Zoom;
+                switch (way)
+                {
+                    case MoveWay.Left:
+                        pic.BackgroundImage = arrows.left;
+                        break;
+                    case MoveWay.Right:
+                        pic.BackgroundImage = arrows.right;
+                        break;
+                    case MoveWay.Up:
+                        pic.BackgroundImage = arrows.up;
+                        break;
+                    case MoveWay.Down:
+                        pic.BackgroundImage = arrows.down;
+                        break;
+                }
+                flowLayoutPanel1.Controls.Add(pic);
+
+            }
         }
     }
 
-    
+
 }

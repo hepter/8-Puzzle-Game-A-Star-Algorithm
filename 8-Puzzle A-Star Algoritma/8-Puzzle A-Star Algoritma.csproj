@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Puzzle\arrows.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>arrows.resx</DependentUpon>
+    </Compile>
     <Compile Include="Puzzle\Enum.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -72,6 +77,10 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Puzzle\arrows.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>arrows.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Puzzle\N-Puzzle.resx">
       <DependentUpon>N-Puzzle.cs</DependentUpon>
@@ -101,6 +110,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="arrows\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arrows\left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arrows\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="arrows\up.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
