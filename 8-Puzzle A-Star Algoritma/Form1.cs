@@ -82,7 +82,7 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
+            var aa = n_Puzzle1.GetSolveViaAStar();
         }
     }
 

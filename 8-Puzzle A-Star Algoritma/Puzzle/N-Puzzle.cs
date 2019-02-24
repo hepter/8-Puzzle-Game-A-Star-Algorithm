@@ -18,6 +18,23 @@ namespace _8_Puzzle_A_Star_Algoritma
         
         public bool IsBusy { get => isBusy; set => isBusy = value; }
 
+        public int[] GetSequentalOrder
+        {
+            get
+            {
+                List<int> list=new List<int>();
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        list.Add((tableLayoutPanel1?.GetControlFromPosition(j,i) as Square)?.Number ?? 0);
+                    }
+                }
+                return list.ToArray();
+            }
+
+        }
         public N_Puzzle()
         {
             InitializeComponent();
@@ -59,6 +76,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             IsBusy = false;
             s.Color = Color.DeepSkyBlue;
         }
+        
 
 
         private void N_Puzzle_Load(object sender, EventArgs e)

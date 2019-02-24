@@ -12,7 +12,7 @@ namespace _8_Puzzle_A_Star_Algoritma
     
    public static class PuzzleDriver
    {
-        private static int[] BasePuzzleOrder = new int[] {1,2,3,4,5,6,7,8,9,0 };
+        private static int[] BasePuzzleOrder = new int[] {1,2,3,4,5,6,7,8,0 };
 
         private static int SleepInterval = 1;
         static void Attach(this Control obje,TableLayoutPanel ParentObje)
@@ -153,9 +153,13 @@ namespace _8_Puzzle_A_Star_Algoritma
             obje.Attach(tlp);
         }
 
-       public static int?[] SimulateSlideMove(int[] order,MoveWay way)
+       public static int?[] SimulateSlideMove(this int[] order,MoveWay way)
        {
-           int[][] grid = new int[3][]{new int[3], new int[3],new int[3]};
+           int[][] grid = new int[3][];
+           grid[0]= new int[3];
+           grid[1]= new int[3];
+           grid[2]= new int[3];
+
            Point emptyLoc = Point.Empty;
            for (int i = 0; i < 3; i++)
            {
@@ -172,35 +176,35 @@ namespace _8_Puzzle_A_Star_Algoritma
            int temp;
            switch (way)
            {
-                  
+                   
                case MoveWay.Left:
-                   if (emptyLoc.X+1>2)
+                   if (emptyLoc.Y+1>2)
                        return null;
-                   temp = grid[emptyLoc.X + 1][emptyLoc.Y];
-                   grid[emptyLoc.X + 1][emptyLoc.Y] = 0;
+                   temp = grid[emptyLoc.X][emptyLoc.Y+1];
+                   grid[emptyLoc.X ][emptyLoc.Y+1] = 0;
                    grid[emptyLoc.X][emptyLoc.Y] = temp;
                    break;
                case MoveWay.Right:
-                   if (emptyLoc.X-1<0)
+                   if (emptyLoc.Y-1<0)
                        return null;
-                   temp = grid[emptyLoc.X - 1][emptyLoc.Y];
-                   grid[emptyLoc.X - 1][emptyLoc.Y] = 0;
+                   temp = grid[emptyLoc.X][emptyLoc.Y-1];
+                   grid[emptyLoc.X ][emptyLoc.Y-1] = 0;
                    grid[emptyLoc.X][emptyLoc.Y] = temp;
                     
                    break;
                case MoveWay.Up:
-                   if (emptyLoc.Y+1>2)
+                   if (emptyLoc.X+1>2)
                        return null;
-                   temp = grid[emptyLoc.X ][emptyLoc.Y+1];
-                   grid[emptyLoc.X][emptyLoc.Y+1] = 0;
+                   temp = grid[emptyLoc.X +1][emptyLoc.Y];
+                   grid[emptyLoc.X+1][emptyLoc.Y] = 0;
                    grid[emptyLoc.X][emptyLoc.Y] = temp;
 
                    break;
                case MoveWay.Down:
-                   if (emptyLoc.Y-1<0)
+                   if (emptyLoc.X-1<0)
                        return null;
-                   temp = grid[emptyLoc.X ][emptyLoc.Y-1];
-                   grid[emptyLoc.X][emptyLoc.Y-1] = 0;
+                   temp = grid[emptyLoc.X -1][emptyLoc.Y];
+                   grid[emptyLoc.X-1][emptyLoc.Y] = 0;
                    grid[emptyLoc.X][emptyLoc.Y] = temp;
 
                    break;
@@ -219,33 +223,55 @@ namespace _8_Puzzle_A_Star_Algoritma
 
        }
 
-        public static List<MoveWay> GetSolveViaAStar()
+        public static List<MoveWay> GetSolveViaAStar(this N_Puzzle puzzle )
         {
-            List<MoveWay> solve=new List<MoveWay>();
-
-            return AStarAlgorithm(BasePuzzleOrder, new int[] {1, 4, 3, 2, 5, 8, 6, 7, 0, 9});
-
+            return AStarAlgorithm(BasePuzzleOrder, puzzle.GetSequentalOrder);
         }
 
 
-       static List<MoveWay> AStarAlgorithm(int[] baseOrder,int[] currentOrder,int gScore=0,List<MoveWay> solveList=null)
+       static List<MoveWay> AStarAlgorithm(int[] baseOrder,int[] currentOrder,int gScore=1,List<MoveWay> solveList=null)
        {
-        
-            int f;
+           if (solveList == null)
+           {
+                solveList=new List<MoveWay>();
+               if (currentOrder.SequenceEqual(baseOrder))
+               {
+                   return null;
+               }
+           }
+                
 
+           List<Tuple<int,int[],MoveWay>> instanceTuple=new List<Tuple<int, int[],MoveWay>>();
+           int f;
 
+           for (int i = 0; i < 4; i++)
+           {
+               int?[] newOrder = currentOrder.SimulateSlideMove((MoveWay)i);
+               if (newOrder!=null)
+               {
 
-            f=FScore(baseOrder,currentOrder,gScore);
+                   f=FScore(baseOrder,newOrder.Cast<int>().ToArray(),gScore);
+                   instanceTuple.Add(new Tuple<int, int[],MoveWay>(f,newOrder.Cast<int>().ToArray(),(MoveWay)i));
+               }
+           }
 
-
-           return null;
-
+           List<Tuple<int, int[],MoveWay>> sortedTuples = instanceTuple.OrderBy(a => a.Item1).ToList();
+           
+           solveList.Add(sortedTuples[0].Item3);
+           if (sortedTuples[0].Item1==0)
+           {
+               return solveList;
+           }
+       
+           return AStarAlgorithm(baseOrder, sortedTuples[0].Item2, ++gScore, solveList);
        }
 
        static int FScore(int[] baseOrder, int[] currentOrder,int gScore)
        {
            int f, g, h;
            h = Heuristic1(baseOrder, currentOrder);
+           if (h == 0)
+               return h;
            g = gScore;
            f = g + h;
            return f;
