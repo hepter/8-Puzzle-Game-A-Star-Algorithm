@@ -69,6 +69,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puzzle\PuzzleDriver.cs" />
+    <Compile Include="Puzzle\SolveBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Puzzle\SolveBox.Designer.cs">
+      <DependentUpon>SolveBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Puzzle\Step.cs" />
     <Compile Include="Puzzle\StepContainer.cs" />
     <Compile Include="Square.cs">
@@ -96,6 +102,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Puzzle\SolveBox.resx">
+      <DependentUpon>SolveBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Square.resx">
       <DependentUpon>Square.cs</DependentUpon>
     </EmbeddedResource>

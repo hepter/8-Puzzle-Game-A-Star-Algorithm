@@ -137,15 +137,15 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
                 test = test.Stage;
             }
 
-            Console.WriteLine();
+            //Console.WriteLine();
             int[] newOrder= s.CurrentPuzzle;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Console.Write((newOrder[(i*3)+j].ToString()== "0" ?" ":newOrder[(i*3)+j].ToString())+" ");
+                  //  Console.Write((newOrder[(i*3)+j].ToString()== "0" ?" ":newOrder[(i*3)+j].ToString())+" ");
                 }
-                Console.WriteLine();
+               // Console.WriteLine();
             }
 
 

@@ -27,6 +27,11 @@ namespace _8_Puzzle_A_Star_Algoritma
         Up,
         Down
     }
+    public enum Heuristic
+    {
+        manhattan,
+        hamming
+    }
     public class Enum
     {
 
