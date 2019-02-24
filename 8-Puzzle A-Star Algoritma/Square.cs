@@ -16,7 +16,16 @@ namespace _8_Puzzle_A_Star_Algoritma
         private SquareState pos;
         private Color color;
 
-        public int Number { get => number; }
+        public int Number
+        {
+            get => number;
+            set
+            {
+                number = value;
+                label1.Text = number.ToString();
+            }
+        }
+
         public SquareState Pos { get => pos; }
         public Color Color
         {

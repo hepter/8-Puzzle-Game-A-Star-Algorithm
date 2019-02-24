@@ -20,7 +20,14 @@ namespace _8_Puzzle_A_Star_Algoritma
         BOTTOM_RIGHT ,
         EMPTY
     }
-    public   class Enum
+    public enum MoveWay
+    {
+        Left,
+        Right,
+        Up,
+        Down
+    }
+    public class Enum
     {
 
 

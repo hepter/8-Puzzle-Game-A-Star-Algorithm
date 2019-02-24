@@ -35,7 +35,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             }
             else
             {
-                tableLayoutPanel1.Controls.Add(button1,1,1);
+              //  tableLayoutPanel1.Controls.Add(button1,1,1);
             }
            
 
@@ -44,24 +44,45 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            char a, b;
+            a = 'a';
+            b = 'b';
+            int ab ='1' & '2';
+            SortedList<object,string> test=new SortedList<object, string>();
+            SortedSet<int?> ttt=new SortedSet<int?>();
+            ttt.Add(10);
+            ttt.Add(1);
+            ttt.Add(0);
+
+
         }
 
 
         private void button1_LocationChanged(object sender, EventArgs e)
         {
             Point lOnm = button1.FindForm().PointToClient(button1.Parent.PointToScreen(button1.Location));
-            label1.Text = "X:" + lOnm.X + " Y:" + lOnm.Y;
+           // label1.Text = "X:" + lOnm.X + " Y:" + lOnm.Y;
 
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            button1.SlideMove(PuzzleDriver.MoveWay.Right);
+            button1.SlideMove(MoveWay.Right);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            n_Puzzle1.Shuffle();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 

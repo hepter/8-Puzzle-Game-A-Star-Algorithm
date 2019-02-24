@@ -72,6 +72,7 @@
             this.square1.Location = new System.Drawing.Point(5, 5);
             this.square1.Margin = new System.Windows.Forms.Padding(5);
             this.square1.Name = "square1";
+            this.square1.Number = 1;
             this.square1.Size = new System.Drawing.Size(87, 80);
             this.square1.TabIndex = 0;
             this.square1.Click += new System.EventHandler(this.BoxClick_Event);
@@ -83,6 +84,7 @@
             this.square2.Location = new System.Drawing.Point(102, 5);
             this.square2.Margin = new System.Windows.Forms.Padding(5);
             this.square2.Name = "square2";
+            this.square2.Number = 2;
             this.square2.Size = new System.Drawing.Size(87, 80);
             this.square2.TabIndex = 0;
             this.square2.Click += new System.EventHandler(this.BoxClick_Event);
@@ -94,6 +96,7 @@
             this.square3.Location = new System.Drawing.Point(199, 5);
             this.square3.Margin = new System.Windows.Forms.Padding(5);
             this.square3.Name = "square3";
+            this.square3.Number = 3;
             this.square3.Size = new System.Drawing.Size(87, 80);
             this.square3.TabIndex = 0;
             this.square3.Click += new System.EventHandler(this.BoxClick_Event);
@@ -105,6 +108,7 @@
             this.square4.Location = new System.Drawing.Point(5, 95);
             this.square4.Margin = new System.Windows.Forms.Padding(5);
             this.square4.Name = "square4";
+            this.square4.Number = 4;
             this.square4.Size = new System.Drawing.Size(87, 80);
             this.square4.TabIndex = 0;
             this.square4.Click += new System.EventHandler(this.BoxClick_Event);
@@ -116,6 +120,7 @@
             this.square6.Location = new System.Drawing.Point(199, 95);
             this.square6.Margin = new System.Windows.Forms.Padding(5);
             this.square6.Name = "square6";
+            this.square6.Number = 6;
             this.square6.Size = new System.Drawing.Size(87, 80);
             this.square6.TabIndex = 0;
             this.square6.Click += new System.EventHandler(this.BoxClick_Event);
@@ -127,6 +132,7 @@
             this.square7.Location = new System.Drawing.Point(5, 185);
             this.square7.Margin = new System.Windows.Forms.Padding(5);
             this.square7.Name = "square7";
+            this.square7.Number = 7;
             this.square7.Size = new System.Drawing.Size(87, 82);
             this.square7.TabIndex = 0;
             this.square7.Click += new System.EventHandler(this.BoxClick_Event);
@@ -138,6 +144,7 @@
             this.square8.Location = new System.Drawing.Point(102, 185);
             this.square8.Margin = new System.Windows.Forms.Padding(5);
             this.square8.Name = "square8";
+            this.square8.Number = 8;
             this.square8.Size = new System.Drawing.Size(87, 82);
             this.square8.TabIndex = 0;
             this.square8.Load += new System.EventHandler(this.square8_Load);
@@ -150,6 +157,7 @@
             this.square5.Location = new System.Drawing.Point(102, 95);
             this.square5.Margin = new System.Windows.Forms.Padding(5);
             this.square5.Name = "square5";
+            this.square5.Number = 5;
             this.square5.Size = new System.Drawing.Size(87, 80);
             this.square5.TabIndex = 0;
             this.square5.Click += new System.EventHandler(this.BoxClick_Event);

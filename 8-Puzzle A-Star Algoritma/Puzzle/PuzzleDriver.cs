@@ -11,17 +11,19 @@ namespace _8_Puzzle_A_Star_Algoritma
 {
     
    public static class PuzzleDriver
-    {
-        private static int SleepInterval = 1;
-       
-        public enum MoveWay
-        {
-            Left,
-            Right,
-            Up,
-            Down
-        }
+   {
+        private static int[] BasePuzzleOrder = new int[] {1,2,3,4,5,6,7,8,9,0 };
 
+        private static int SleepInterval = 1;
+        static void Attach(this Control obje,TableLayoutPanel ParentObje)
+        {
+            Point orderPoint = obje.GetLocOrder(ParentObje);
+           
+            ParentObje.Controls.Add(obje,orderPoint.X,orderPoint.Y);
+            obje.Dock = (obje.Dock == DockStyle.Fill)?obje.Dock:DockStyle.Fill;
+            obje.BringToFront();
+          
+        }
         static Control Detach(this Control obje)
         {
             Control container = obje.Parent;
@@ -35,15 +37,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             obje.BringToFront();
             return container;
         }
-        static void Attach(this Control obje,TableLayoutPanel ParentObje)
-        {
-            Point orderPoint = obje.GetLocOrder(ParentObje);
-           
-            ParentObje.Controls.Add(obje,orderPoint.X,orderPoint.Y);
-            obje.Dock = (obje.Dock == DockStyle.Fill)?obje.Dock:DockStyle.Fill;
-            obje.BringToFront();
-          
-        }
+       
 
         public static Point GetLocOrder(this Control obje, TableLayoutPanel MParentObje=null)
         {
@@ -107,6 +101,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             }
             return new Point(2,2);
         }
+    
 
         public static void SlideMove(this Control obje,MoveWay move)
         {
@@ -152,10 +147,123 @@ namespace _8_Puzzle_A_Star_Algoritma
                         obje.Location=new Point(tempPoint.X,tempPoint.Y+i);
                     }
                     break;
+
             }
 
             obje.Attach(tlp);
+        }
+
+       public static int?[] SimulateSlideMove(int[] order,MoveWay way)
+       {
+           int[][] grid = new int[3][]{new int[3], new int[3],new int[3]};
+           Point emptyLoc = Point.Empty;
+           for (int i = 0; i < 3; i++)
+           {
+               for (int j = 0; j < 3; j++)
+               {
+                   int item =  order[(i * 3) + j];
+                   if (item==0)
+                   {
+                       emptyLoc=new Point(i,j);
+                   }
+                   grid[i][j] =item;
+               }
+           }
+           int temp;
+           switch (way)
+           {
+                  
+               case MoveWay.Left:
+                   if (emptyLoc.X+1>2)
+                       return null;
+                   temp = grid[emptyLoc.X + 1][emptyLoc.Y];
+                   grid[emptyLoc.X + 1][emptyLoc.Y] = 0;
+                   grid[emptyLoc.X][emptyLoc.Y] = temp;
+                   break;
+               case MoveWay.Right:
+                   if (emptyLoc.X-1<0)
+                       return null;
+                   temp = grid[emptyLoc.X - 1][emptyLoc.Y];
+                   grid[emptyLoc.X - 1][emptyLoc.Y] = 0;
+                   grid[emptyLoc.X][emptyLoc.Y] = temp;
+                    
+                   break;
+               case MoveWay.Up:
+                   if (emptyLoc.Y+1>2)
+                       return null;
+                   temp = grid[emptyLoc.X ][emptyLoc.Y+1];
+                   grid[emptyLoc.X][emptyLoc.Y+1] = 0;
+                   grid[emptyLoc.X][emptyLoc.Y] = temp;
+
+                   break;
+               case MoveWay.Down:
+                   if (emptyLoc.Y-1<0)
+                       return null;
+                   temp = grid[emptyLoc.X ][emptyLoc.Y-1];
+                   grid[emptyLoc.X][emptyLoc.Y-1] = 0;
+                   grid[emptyLoc.X][emptyLoc.Y] = temp;
+
+                   break;
+           }
+
+           int?[] newOrder= new int?[9];
+           for (int i = 0; i < 3; i++)
+           {
+               for (int j = 0; j < 3; j++)
+               {
+                   newOrder[(i*3)+j] = grid[i][j];
+               }
+           }
+
+           return newOrder;
+
+       }
+
+        public static List<MoveWay> GetSolveViaAStar()
+        {
+            List<MoveWay> solve=new List<MoveWay>();
+
+            return AStarAlgorithm(BasePuzzleOrder, new int[] {1, 4, 3, 2, 5, 8, 6, 7, 0, 9});
 
         }
+
+
+       static List<MoveWay> AStarAlgorithm(int[] baseOrder,int[] currentOrder,int gScore=0,List<MoveWay> solveList=null)
+       {
+        
+            int f;
+
+
+
+            f=FScore(baseOrder,currentOrder,gScore);
+
+
+           return null;
+
+       }
+
+       static int FScore(int[] baseOrder, int[] currentOrder,int gScore)
+       {
+           int f, g, h;
+           h = Heuristic1(baseOrder, currentOrder);
+           g = gScore;
+           f = g + h;
+           return f;
+       }
+       static int Heuristic1(int[] baseOrder, int[] currentOrder)
+       {
+          int h = 0;
+
+           for (int i = 0; i < baseOrder.Length; i++)
+           {
+               if (baseOrder[i]!=currentOrder[i])
+               {
+                   h++;
+               }
+           }
+
+           return h;
+       }
+
     }
 }
