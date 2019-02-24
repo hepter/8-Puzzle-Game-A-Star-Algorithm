@@ -69,6 +69,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Puzzle\PuzzleDriver.cs" />
+    <Compile Include="Puzzle\Step.cs" />
+    <Compile Include="Puzzle\StepContainer.cs" />
     <Compile Include="Square.cs">
       <SubType>UserControl</SubType>
     </Compile>

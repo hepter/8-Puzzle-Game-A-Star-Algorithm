@@ -160,6 +160,7 @@
             this.square5.Number = 5;
             this.square5.Size = new System.Drawing.Size(87, 80);
             this.square5.TabIndex = 0;
+            this.square5.Load += new System.EventHandler(this.square5_Load);
             this.square5.Click += new System.EventHandler(this.BoxClick_Event);
             // 
             // N_Puzzle

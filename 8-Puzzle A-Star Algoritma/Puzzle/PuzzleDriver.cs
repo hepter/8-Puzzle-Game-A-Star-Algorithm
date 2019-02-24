@@ -2,17 +2,23 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _8_Puzzle_A_Star_Algoritma.Puzzle;
 
 namespace _8_Puzzle_A_Star_Algoritma
 {
     
    public static class PuzzleDriver
    {
-        private static int[] BasePuzzleOrder = new int[] {1,2,3,4,5,6,7,8,0 };
+       private static event EventHandler NodeTickEvent;
+
+       [DllImport("kernel32.dll")]
+       static extern void OutputDebugString(string lpOutputString);
+        public readonly static int[] BasePuzzleOrder = new int[] {1,2,3,4,5,6,7,8,0 };
 
         private static int SleepInterval = 1;
         static void Attach(this Control obje,TableLayoutPanel ParentObje)
@@ -33,8 +39,11 @@ namespace _8_Puzzle_A_Star_Algoritma
             obje.Size = bak;
             obje.Parent = obje.Parent.Parent;
             
-            obje.Location = Point.Add(coor,new Size(-2,-9));
+            obje.Location = Point.Add(coor,new Size(-18,-10));//-2,-9//Box Move Offset
+            
             obje.BringToFront();
+            //Application.DoEvents();
+            //Thread.Sleep(1000);
             return container;
         }
        
@@ -215,8 +224,11 @@ namespace _8_Puzzle_A_Star_Algoritma
            {
                for (int j = 0; j < 3; j++)
                {
+                  // Console.Write((grid[i][j].ToString()== "0" ?" ":grid[i][j].ToString())+" ");
                    newOrder[(i*3)+j] = grid[i][j];
                }
+
+               //OutputDebugString();
            }
 
            return newOrder;
@@ -225,69 +237,115 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         public static List<MoveWay> GetSolveViaAStar(this N_Puzzle puzzle )
         {
-            return AStarAlgorithm(BasePuzzleOrder, puzzle.GetSequentalOrder);
+       
+           // return AStarAlgorithm(BasePuzzleOrder, puzzle.GetSequentalOrder);
+            return AStarSolve(BasePuzzleOrder, puzzle.GetSequentalOrder);
+
         }
 
-
-       static List<MoveWay> AStarAlgorithm(int[] baseOrder,int[] currentOrder,int gScore=1,List<MoveWay> solveList=null)
+       public static MoveWay ReverseMoveWay(this MoveWay way)
        {
-           if (solveList == null)
-           {
-                solveList=new List<MoveWay>();
-               if (currentOrder.SequenceEqual(baseOrder))
-               {
-                   return null;
-               }
-           }
-                
-
-           List<Tuple<int,int[],MoveWay>> instanceTuple=new List<Tuple<int, int[],MoveWay>>();
-           int f;
-
-           for (int i = 0; i < 4; i++)
-           {
-               int?[] newOrder = currentOrder.SimulateSlideMove((MoveWay)i);
-               if (newOrder!=null)
-               {
-
-                   f=FScore(baseOrder,newOrder.Cast<int>().ToArray(),gScore);
-                   instanceTuple.Add(new Tuple<int, int[],MoveWay>(f,newOrder.Cast<int>().ToArray(),(MoveWay)i));
-               }
-           }
-
-           List<Tuple<int, int[],MoveWay>> sortedTuples = instanceTuple.OrderBy(a => a.Item1).ToList();
-           
-           solveList.Add(sortedTuples[0].Item3);
-           if (sortedTuples[0].Item1==0)
-           {
-               return solveList;
-           }
-       
-           return AStarAlgorithm(baseOrder, sortedTuples[0].Item2, ++gScore, solveList);
+            switch (way)
+            {
+                case MoveWay.Left:
+                    return MoveWay.Right ;
+                case MoveWay.Right:
+                    return MoveWay.Left ;
+                case MoveWay.Up:
+                    return MoveWay.Down ;
+                case MoveWay.Down:
+                    return MoveWay.Up ;
+            }
+           return 0;
        }
 
-       static int FScore(int[] baseOrder, int[] currentOrder,int gScore)
+       static List<MoveWay> AStarSolve(int[] baseOrder, int[] currentOrder)
+       {
+         
+           Step rootNode= new Step(0,baseOrder,currentOrder);
+           Console.Write(new string('\n',50));
+           if (currentOrder.SequenceEqual(baseOrder))
+               return null;
+
+           StepContainer aStarList=new StepContainer();
+           StepContainer AddedNodes=new StepContainer();
+
+           aStarList.Add(rootNode);
+
+           int ctr = 0;
+           while (!aStarList.IsCompleted())
+           {
+               Step bestNodeRoot = aStarList.GetBestAndDeleteNode;
+               ctr++;
+               if (ctr==6000)
+               {
+                   ctr = 0;
+               }
+              
+               AddedNodes.Add(bestNodeRoot.GetLast());
+              
+               for (int i = 0; i < 4; i++)
+               {
+                   Step newStep = bestNodeRoot.GetLast().Move((MoveWay)i);
+                   if (newStep.IsMoved && !AddedNodes.ContainsNode(newStep))
+                   {
+                      
+                       aStarList.Add(bestNodeRoot.Clone().Add(newStep));
+                       //OutputDebugString($"{"Move "+((MoveWay)i),-18}  f({newStep.FScore})=g({newStep.GScore})+h({newStep.FScore-newStep.GScore})");
+                   }
+                   else
+                   {
+                       OutputDebugString($"{"Cannot move "+((MoveWay)i),-18}");
+                   }
+                   
+               }
+               
+               //var var = stepList.OrderBy(a => a.FScore).ToList();
+               //OutputDebugString(rootNode.GetLast().IsDone);
+              // rootNode.Add(var[0]);
+              
+               OutputDebugString(new string('-',30));
+           }
+           return aStarList.GetCompletedRoot().GetSolve().Select(a=>a).Reverse().ToList();
+
+       }
+
+     public static int FScore(int[] baseOrder, int[] currentOrder,int gScore)
        {
            int f, g, h;
-           h = Heuristic1(baseOrder, currentOrder);
+           h = Heuristic2(baseOrder, currentOrder);
            if (h == 0)
                return h;
            g = gScore;
            f = g + h;
            return f;
        }
-       static int Heuristic1(int[] baseOrder, int[] currentOrder)
+       static int Heuristic1(int[] baseOrder, int[] currentOrder)//Hamming
        {
           int h = 0;
 
            for (int i = 0; i < baseOrder.Length; i++)
            {
-               if (baseOrder[i]!=currentOrder[i])
+               if (baseOrder[i]!=currentOrder[i] &&currentOrder[i]!=0)
                {
                    h++;
                }
            }
 
+           return h;
+       }
+
+       static int Heuristic2(int[] baseOrder, int[] currentOrder)//Manhattan
+       {
+           int h = 0;
+
+           for (int i = 0; i < 9; i++)
+           {
+               int goalIndex = Array.IndexOf(baseOrder, currentOrder[i]);
+               int colDist = Math.Abs( (i % 3) - (goalIndex % 3) );
+               int rowDist = Math.Abs( (i / 3) - (goalIndex / 3) );
+               h += colDist + rowDist; 
+           }
            return h;
        }
 

@@ -55,7 +55,12 @@ namespace _8_Puzzle_A_Star_Algoritma
             ttt.Add(1);
             ttt.Add(0);
 
-
+            for(int i=0 ;i<100;i++)
+            {
+                Random rnd = new Random(i);
+                Console.WriteLine(rnd.Next(0, 1));
+                
+            }
         }
 
 
@@ -85,7 +90,7 @@ namespace _8_Puzzle_A_Star_Algoritma
         {
             var aa = n_Puzzle1.GetSolveViaAStar();
             flowLayoutPanel1.Controls.Clear();
-
+            if (aa == null) return;
             foreach (var way in aa)
             {
                 PictureBox pic = new PictureBox();
@@ -109,6 +114,18 @@ namespace _8_Puzzle_A_Star_Algoritma
                 flowLayoutPanel1.Controls.Add(pic);
 
             }
+
+            label2.Text = aa.Count.ToString();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void n_Puzzle1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
