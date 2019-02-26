@@ -31,6 +31,7 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
             }
         }
 
+
         public bool IsCompleted()
         {
             foreach (Step sss in s)
@@ -92,6 +93,7 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
             }
             return false;
         }
+     
         public void CopyTo(Step[] array, int arrayIndex)
         {
             throw new NotImplementedException();

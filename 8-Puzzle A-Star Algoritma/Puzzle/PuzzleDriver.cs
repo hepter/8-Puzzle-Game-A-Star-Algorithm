@@ -17,6 +17,7 @@ namespace _8_Puzzle_A_Star_Algoritma
         private static int SleepInterval = 1;
         private static int speed = 2;
         public static event EventHandler NodeTickEvent;
+        public static event EventHandler NodeDepthEvent;
 
         [DllImport("kernel32.dll")]
         private static extern void OutputDebugString(string lpOutputString);
@@ -63,7 +64,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             int volume = ParentObje.Parent.Parent.Size.Width / 3;
             int x = 0, y = 0;
             Point coor = obje.FindForm().PointToClient(obje.Parent.PointToScreen(obje.Location));
-            
+
             Point pCoor = ParentObje.FindForm().PointToClient(ParentObje.Parent.PointToScreen(ParentObje.Location));
 
 
@@ -290,7 +291,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             {
                 Step bestNodeRoot = aStarList.GetBestAndDeleteNode;
                 NodeTickEvent(null, null);
-
+                NodeDepthEvent( bestNodeRoot.GetNodeDepth(),null);
 
                 AddedNodes.Add(bestNodeRoot.GetLast());
 
@@ -307,10 +308,6 @@ namespace _8_Puzzle_A_Star_Algoritma
                         OutputDebugString($"{"Cannot move " + (MoveWay) i,-18}");
                     }
                 }
-
-                //var var = stepList.OrderBy(a => a.FScore).ToList();
-                //OutputDebugString(rootNode.GetLast().IsDone);
-                // rootNode.Add(var[0]);
 
                 //OutputDebugString(new string('-',30));
             }

@@ -62,6 +62,19 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
             return s;
         }
 
+        public int GetNodeDepth()
+        {
+            int i = 1;
+            var test = Stage;
+            while (test!=null)
+            {
+                i++;
+                test = test.Stage;
+            }
+
+            return i;
+        }
+
         public Step Clone()
         {
             //deep copy
@@ -97,36 +110,6 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
 
             return false;
         }
-        public bool LastContains(Step s)
-        {
-
-            var test = this;
-        
-            List<Step> bak= new List<Step>();
-            while (test!=null)
-            {
-                bak.Add(test);
-                test = test.Stage;
-            }
-
-            if (bak.Count>1 && bak[bak.Count-2].currentPuzzle.SequenceEqual(s.currentPuzzle))
-            {
-                return true;
-            }
-            if (bak.Count>11 && bak[bak.Count-12].currentPuzzle.SequenceEqual(s.currentPuzzle))
-            {
-                return true;
-            }
-            if (bak.Count>45 && bak[bak.Count-46].currentPuzzle.SequenceEqual(s.currentPuzzle))
-            {
-                return true;
-            }
-            if (bak.Count>32 && bak[bak.Count-33].currentPuzzle.SequenceEqual(s.currentPuzzle))
-            {
-                return true;
-            }
-            return false;
-        }
         public Step Add(Step s)
         {
             var test = this;
@@ -136,19 +119,6 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
                 bak = test;
                 test = test.Stage;
             }
-
-            //Console.WriteLine();
-            int[] newOrder= s.CurrentPuzzle;
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                  //  Console.Write((newOrder[(i*3)+j].ToString()== "0" ?" ":newOrder[(i*3)+j].ToString())+" ");
-                }
-               // Console.WriteLine();
-            }
-
-
 
             bak.Stage = s;
             bak.Stage.GScore = bak.GScore+1;
@@ -170,7 +140,6 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
         public List<MoveWay> GetSolve()
         {
             List<MoveWay> temp= new List<MoveWay>();
-            //temp.Add(this.Way);
 
             var test = Stage;
             while (test != null)
@@ -179,7 +148,6 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
                 test = test.Stage;
             }
 
-            //temp = temp.Take(temp.Count - 1).ToList();
             return temp.Cast<MoveWay>().Reverse().ToList();
         }
     }

@@ -17,14 +17,26 @@ namespace _8_Puzzle_A_Star_Algoritma
             InitializeComponent();
         }
 
-  
 
+        private int slowrefresh = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             PuzzleDriver.NodeTickEvent += (o, args) =>
             {
                 label3.Text = (int.Parse(label3.Text) + 1).ToString();
                 Application.DoEvents();
+            };
+
+            PuzzleDriver.NodeDepthEvent += (o, args) =>
+            {
+                slowrefresh++;
+                if (slowrefresh==100)
+                {
+                    label6.Text =o.ToString();
+                    slowrefresh = 0;
+                }
+               
+              
             };
         }
 
