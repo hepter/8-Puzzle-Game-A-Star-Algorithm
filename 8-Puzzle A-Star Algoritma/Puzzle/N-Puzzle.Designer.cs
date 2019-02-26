@@ -28,7 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.square1 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square2 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square3 = new _8_Puzzle_A_Star_Algoritma.Square();
@@ -37,11 +44,102 @@
             this.square7 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square8 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square5 = new _8_Puzzle_A_Star_Algoritma.Square();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox5, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(313, 337);
+            this.tableLayoutPanel2.TabIndex = 16;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox5.Image = global::_8_Puzzle_A_Star_Algoritma.Properties.Resources.a;
+            this.pictureBox5.Location = new System.Drawing.Point(0, 302);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(313, 35);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.948453F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 86.80412F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.453609F));
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox2, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.pictureBox3, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 33);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(313, 269);
+            this.tableLayoutPanel3.TabIndex = 16;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::_8_Puzzle_A_Star_Algoritma.Properties.Resources.so;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(15, 269);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = global::_8_Puzzle_A_Star_Algoritma.Properties.Resources.sol;
+            this.pictureBox3.Location = new System.Drawing.Point(286, 0);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(27, 269);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 17;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(15, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(2);
+            this.panel1.Size = new System.Drawing.Size(271, 269);
+            this.panel1.TabIndex = 18;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Wheat;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -55,15 +153,27 @@
             this.tableLayoutPanel1.Controls.Add(this.square8, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.square5, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(291, 272);
-            this.tableLayoutPanel1.TabIndex = 5;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 265);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = global::_8_Puzzle_A_Star_Algoritma.Properties.Resources.u;
+            this.pictureBox4.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(313, 33);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
             // 
             // square1
             // 
@@ -73,7 +183,7 @@
             this.square1.Margin = new System.Windows.Forms.Padding(5);
             this.square1.Name = "square1";
             this.square1.Number = 1;
-            this.square1.Size = new System.Drawing.Size(87, 80);
+            this.square1.Size = new System.Drawing.Size(79, 78);
             this.square1.TabIndex = 0;
             this.square1.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -81,11 +191,11 @@
             // 
             this.square2.Color = System.Drawing.Color.Empty;
             this.square2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square2.Location = new System.Drawing.Point(102, 5);
+            this.square2.Location = new System.Drawing.Point(94, 5);
             this.square2.Margin = new System.Windows.Forms.Padding(5);
             this.square2.Name = "square2";
             this.square2.Number = 2;
-            this.square2.Size = new System.Drawing.Size(87, 80);
+            this.square2.Size = new System.Drawing.Size(79, 78);
             this.square2.TabIndex = 0;
             this.square2.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -93,11 +203,11 @@
             // 
             this.square3.Color = System.Drawing.Color.Empty;
             this.square3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square3.Location = new System.Drawing.Point(199, 5);
+            this.square3.Location = new System.Drawing.Point(183, 5);
             this.square3.Margin = new System.Windows.Forms.Padding(5);
             this.square3.Name = "square3";
             this.square3.Number = 3;
-            this.square3.Size = new System.Drawing.Size(87, 80);
+            this.square3.Size = new System.Drawing.Size(79, 78);
             this.square3.TabIndex = 0;
             this.square3.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -105,11 +215,11 @@
             // 
             this.square4.Color = System.Drawing.Color.Empty;
             this.square4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square4.Location = new System.Drawing.Point(5, 95);
+            this.square4.Location = new System.Drawing.Point(5, 93);
             this.square4.Margin = new System.Windows.Forms.Padding(5);
             this.square4.Name = "square4";
             this.square4.Number = 4;
-            this.square4.Size = new System.Drawing.Size(87, 80);
+            this.square4.Size = new System.Drawing.Size(79, 78);
             this.square4.TabIndex = 0;
             this.square4.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -117,11 +227,11 @@
             // 
             this.square6.Color = System.Drawing.Color.Empty;
             this.square6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square6.Location = new System.Drawing.Point(199, 95);
+            this.square6.Location = new System.Drawing.Point(183, 93);
             this.square6.Margin = new System.Windows.Forms.Padding(5);
             this.square6.Name = "square6";
             this.square6.Number = 6;
-            this.square6.Size = new System.Drawing.Size(87, 80);
+            this.square6.Size = new System.Drawing.Size(79, 78);
             this.square6.TabIndex = 0;
             this.square6.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -129,11 +239,11 @@
             // 
             this.square7.Color = System.Drawing.Color.Empty;
             this.square7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square7.Location = new System.Drawing.Point(5, 185);
+            this.square7.Location = new System.Drawing.Point(5, 181);
             this.square7.Margin = new System.Windows.Forms.Padding(5);
             this.square7.Name = "square7";
             this.square7.Number = 7;
-            this.square7.Size = new System.Drawing.Size(87, 82);
+            this.square7.Size = new System.Drawing.Size(79, 79);
             this.square7.TabIndex = 0;
             this.square7.Click += new System.EventHandler(this.BoxClick_Event);
             // 
@@ -141,51 +251,62 @@
             // 
             this.square8.Color = System.Drawing.Color.Empty;
             this.square8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square8.Location = new System.Drawing.Point(102, 185);
+            this.square8.Location = new System.Drawing.Point(94, 181);
             this.square8.Margin = new System.Windows.Forms.Padding(5);
             this.square8.Name = "square8";
             this.square8.Number = 8;
-            this.square8.Size = new System.Drawing.Size(87, 82);
+            this.square8.Size = new System.Drawing.Size(79, 79);
             this.square8.TabIndex = 0;
-            this.square8.Load += new System.EventHandler(this.square8_Load);
             this.square8.Click += new System.EventHandler(this.BoxClick_Event);
             // 
             // square5
             // 
             this.square5.Color = System.Drawing.Color.Empty;
             this.square5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square5.Location = new System.Drawing.Point(102, 95);
+            this.square5.Location = new System.Drawing.Point(94, 93);
             this.square5.Margin = new System.Windows.Forms.Padding(5);
             this.square5.Name = "square5";
             this.square5.Number = 5;
-            this.square5.Size = new System.Drawing.Size(87, 80);
+            this.square5.Size = new System.Drawing.Size(79, 78);
             this.square5.TabIndex = 0;
-            this.square5.Load += new System.EventHandler(this.square5_Load);
             this.square5.Click += new System.EventHandler(this.BoxClick_Event);
             // 
             // N_Puzzle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "N_Puzzle";
-            this.Size = new System.Drawing.Size(291, 272);
+            this.Size = new System.Drawing.Size(313, 337);
             this.Load += new System.EventHandler(this.N_Puzzle_Load);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Square square1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private Square square1;
         private Square square2;
         private Square square3;
         private Square square4;
-        private Square square5;
         private Square square6;
         private Square square7;
         private Square square8;
+        private Square square5;
     }
 }

@@ -37,13 +37,18 @@ namespace _8_Puzzle_A_Star_Algoritma
             Size bak = obje.Size;
             obje.Dock = obje.Dock == DockStyle.None ? obje.Dock : DockStyle.None;
             obje.Size = bak;
-            obje.Parent = obje.Parent.Parent;
 
-            obje.Location = Point.Add(coor, new Size(-14, -14)); //-2,-9//Box Move Offset
 
             obje.BringToFront();
             //Application.DoEvents();
-            // Thread.Sleep(1000);
+            Thread.Sleep(20);
+            obje.Parent = obje.Parent.Parent;
+
+            obje.Location = Point.Add(coor, new Size(-33, -85)); //-2,-9//Box Move Offset
+
+            obje.BringToFront();
+            //Application.DoEvents();
+            // Thread.Sleep(3000);
             return container;
         }
 
@@ -55,28 +60,31 @@ namespace _8_Puzzle_A_Star_Algoritma
                 ParentObje = obje.Parent as TableLayoutPanel;
 
             int validateLenght = ParentObje.Size.Width / 6;
-            int volume = ParentObje.Size.Width / 3;
+            int volume = ParentObje.Parent.Parent.Size.Width / 3;
             int x = 0, y = 0;
             Point coor = obje.FindForm().PointToClient(obje.Parent.PointToScreen(obje.Location));
+            
+            Point pCoor = ParentObje.FindForm().PointToClient(ParentObje.Parent.PointToScreen(ParentObje.Location));
 
-            if (coor.X + validateLenght > ParentObje.Location.X &&
-                coor.X + validateLenght < ParentObje.Location.X + volume)
+
+            if (coor.X + validateLenght > pCoor.X &&
+                coor.X + validateLenght < pCoor.X + volume)
                 x = 0;
-            else if (coor.X + validateLenght > ParentObje.Location.X + volume &&
-                     coor.X + validateLenght < ParentObje.Location.X + volume * 2)
+            else if (coor.X + validateLenght > pCoor.X + volume &&
+                     coor.X + validateLenght < pCoor.X + volume * 2)
                 x = 1;
-            else if (coor.X + validateLenght > ParentObje.Location.X + volume * 2 &&
-                     coor.X + validateLenght < ParentObje.Location.X + volume * 3)
+            else if (coor.X + validateLenght > pCoor.X + volume * 2 &&
+                     coor.X + validateLenght < pCoor.X + volume * 3)
                 x = 2;
 
-            if (coor.Y + validateLenght > ParentObje.Location.Y &&
-                coor.Y + validateLenght < ParentObje.Location.Y + volume)
+            if (coor.Y + validateLenght > pCoor.Y &&
+                coor.Y + validateLenght < pCoor.Y + volume)
                 y = 0;
-            else if (coor.Y + validateLenght > ParentObje.Location.Y + volume &&
-                     coor.Y + validateLenght < ParentObje.Location.Y + volume * 2)
+            else if (coor.Y + validateLenght > pCoor.Y + volume &&
+                     coor.Y + validateLenght < pCoor.Y + volume * 2)
                 y = 1;
-            else if (coor.Y + validateLenght > ParentObje.Location.Y + volume * 2 &&
-                     coor.Y + validateLenght < ParentObje.Location.Y + volume * 3)
+            else if (coor.Y + validateLenght > pCoor.Y + volume * 2 &&
+                     coor.Y + validateLenght < pCoor.Y + volume * 3)
                 y = 2;
 
             return new Point(x, y);
