@@ -33,6 +33,18 @@ namespace _8_Puzzle_A_Star_Algoritma
             }
         }
 
+        Color SetSquareDefaultColor
+        {
+            set
+            {
+                foreach (Square sq in tableLayoutPanel1.Controls.OfType<Square>())
+                {
+                    sq.BorderColor = value;
+                }
+            }
+
+        }
+
         public event EventHandler SlideEvent;
 
         public static bool isSolvable(int[] BasePuzzle, int[] currentPuzzle)
@@ -106,11 +118,11 @@ namespace _8_Puzzle_A_Star_Algoritma
         private void BoxClick_Event(object sender, EventArgs e)
         {
             var s = sender as Square;
-            s.Color = Color.Orange;
+            s.BorderColor = Color.Blue   ;
             IsBusy = true;
             s.SlideMove();
             IsBusy = false;
-            s.Color = Color.DeepSkyBlue;
+            s.BorderColor = Color.Gray;
         }
 
         public void Slide(MoveWay way)

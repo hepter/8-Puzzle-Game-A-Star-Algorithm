@@ -24,7 +24,10 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
                         min = i;
                     }
                 }
-
+                if (s.Count()==0)
+                {
+                    return null;
+                }
                 var bak = s[min];
                 s.RemoveAt(min);
                 return bak;

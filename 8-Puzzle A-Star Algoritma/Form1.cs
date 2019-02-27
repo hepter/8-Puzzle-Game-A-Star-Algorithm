@@ -24,7 +24,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             PuzzleDriver.NodeTickEvent += (o, args) =>
             {
                 label3.Text = (int.Parse(label3.Text) + 1).ToString();
-                Application.DoEvents();
+               // Application.DoEvents();
             };
 
             PuzzleDriver.NodeDepthEvent += (o, args) =>

@@ -35,7 +35,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.square1 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square2 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square3 = new _8_Puzzle_A_Star_Algoritma.Square();
@@ -44,6 +43,7 @@
             this.square7 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square8 = new _8_Puzzle_A_Star_Algoritma.Square();
             this.square5 = new _8_Puzzle_A_Star_Algoritma.Square();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
@@ -133,7 +133,6 @@
             this.panel1.Location = new System.Drawing.Point(15, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(2);
             this.panel1.Size = new System.Drawing.Size(271, 269);
             this.panel1.TabIndex = 18;
             // 
@@ -153,15 +152,111 @@
             this.tableLayoutPanel1.Controls.Add(this.square8, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.square5, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(267, 265);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(271, 269);
             this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // square1
+            // 
+            this.square1.BorderColor = System.Drawing.Color.Empty;
+            this.square1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square1.Location = new System.Drawing.Point(5, 5);
+            this.square1.Margin = new System.Windows.Forms.Padding(5);
+            this.square1.Name = "square1";
+            this.square1.Number = 1;
+            this.square1.Size = new System.Drawing.Size(80, 79);
+            this.square1.TabIndex = 0;
+            this.square1.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square2
+            // 
+            this.square2.BorderColor = System.Drawing.Color.Empty;
+            this.square2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square2.Location = new System.Drawing.Point(95, 5);
+            this.square2.Margin = new System.Windows.Forms.Padding(5);
+            this.square2.Name = "square2";
+            this.square2.Number = 2;
+            this.square2.Size = new System.Drawing.Size(80, 79);
+            this.square2.TabIndex = 0;
+            this.square2.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square3
+            // 
+            this.square3.BorderColor = System.Drawing.Color.Empty;
+            this.square3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square3.Location = new System.Drawing.Point(185, 5);
+            this.square3.Margin = new System.Windows.Forms.Padding(5);
+            this.square3.Name = "square3";
+            this.square3.Number = 3;
+            this.square3.Size = new System.Drawing.Size(81, 79);
+            this.square3.TabIndex = 0;
+            this.square3.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square4
+            // 
+            this.square4.BorderColor = System.Drawing.Color.Empty;
+            this.square4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square4.Location = new System.Drawing.Point(5, 94);
+            this.square4.Margin = new System.Windows.Forms.Padding(5);
+            this.square4.Name = "square4";
+            this.square4.Number = 4;
+            this.square4.Size = new System.Drawing.Size(80, 79);
+            this.square4.TabIndex = 0;
+            this.square4.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square6
+            // 
+            this.square6.BorderColor = System.Drawing.Color.Empty;
+            this.square6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square6.Location = new System.Drawing.Point(185, 94);
+            this.square6.Margin = new System.Windows.Forms.Padding(5);
+            this.square6.Name = "square6";
+            this.square6.Number = 6;
+            this.square6.Size = new System.Drawing.Size(81, 79);
+            this.square6.TabIndex = 0;
+            this.square6.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square7
+            // 
+            this.square7.BorderColor = System.Drawing.Color.Empty;
+            this.square7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square7.Location = new System.Drawing.Point(5, 183);
+            this.square7.Margin = new System.Windows.Forms.Padding(5);
+            this.square7.Name = "square7";
+            this.square7.Number = 7;
+            this.square7.Size = new System.Drawing.Size(80, 81);
+            this.square7.TabIndex = 0;
+            this.square7.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square8
+            // 
+            this.square8.BorderColor = System.Drawing.Color.Empty;
+            this.square8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square8.Location = new System.Drawing.Point(95, 183);
+            this.square8.Margin = new System.Windows.Forms.Padding(5);
+            this.square8.Name = "square8";
+            this.square8.Number = 8;
+            this.square8.Size = new System.Drawing.Size(80, 81);
+            this.square8.TabIndex = 0;
+            this.square8.Click += new System.EventHandler(this.BoxClick_Event);
+            // 
+            // square5
+            // 
+            this.square5.BorderColor = System.Drawing.Color.Empty;
+            this.square5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.square5.Location = new System.Drawing.Point(95, 94);
+            this.square5.Margin = new System.Windows.Forms.Padding(5);
+            this.square5.Name = "square5";
+            this.square5.Number = 5;
+            this.square5.Size = new System.Drawing.Size(80, 79);
+            this.square5.TabIndex = 0;
+            this.square5.Click += new System.EventHandler(this.BoxClick_Event);
             // 
             // pictureBox4
             // 
@@ -174,102 +269,6 @@
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 17;
             this.pictureBox4.TabStop = false;
-            // 
-            // square1
-            // 
-            this.square1.Color = System.Drawing.Color.Empty;
-            this.square1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square1.Location = new System.Drawing.Point(5, 5);
-            this.square1.Margin = new System.Windows.Forms.Padding(5);
-            this.square1.Name = "square1";
-            this.square1.Number = 1;
-            this.square1.Size = new System.Drawing.Size(79, 78);
-            this.square1.TabIndex = 0;
-            this.square1.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square2
-            // 
-            this.square2.Color = System.Drawing.Color.Empty;
-            this.square2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square2.Location = new System.Drawing.Point(94, 5);
-            this.square2.Margin = new System.Windows.Forms.Padding(5);
-            this.square2.Name = "square2";
-            this.square2.Number = 2;
-            this.square2.Size = new System.Drawing.Size(79, 78);
-            this.square2.TabIndex = 0;
-            this.square2.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square3
-            // 
-            this.square3.Color = System.Drawing.Color.Empty;
-            this.square3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square3.Location = new System.Drawing.Point(183, 5);
-            this.square3.Margin = new System.Windows.Forms.Padding(5);
-            this.square3.Name = "square3";
-            this.square3.Number = 3;
-            this.square3.Size = new System.Drawing.Size(79, 78);
-            this.square3.TabIndex = 0;
-            this.square3.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square4
-            // 
-            this.square4.Color = System.Drawing.Color.Empty;
-            this.square4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square4.Location = new System.Drawing.Point(5, 93);
-            this.square4.Margin = new System.Windows.Forms.Padding(5);
-            this.square4.Name = "square4";
-            this.square4.Number = 4;
-            this.square4.Size = new System.Drawing.Size(79, 78);
-            this.square4.TabIndex = 0;
-            this.square4.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square6
-            // 
-            this.square6.Color = System.Drawing.Color.Empty;
-            this.square6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square6.Location = new System.Drawing.Point(183, 93);
-            this.square6.Margin = new System.Windows.Forms.Padding(5);
-            this.square6.Name = "square6";
-            this.square6.Number = 6;
-            this.square6.Size = new System.Drawing.Size(79, 78);
-            this.square6.TabIndex = 0;
-            this.square6.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square7
-            // 
-            this.square7.Color = System.Drawing.Color.Empty;
-            this.square7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square7.Location = new System.Drawing.Point(5, 181);
-            this.square7.Margin = new System.Windows.Forms.Padding(5);
-            this.square7.Name = "square7";
-            this.square7.Number = 7;
-            this.square7.Size = new System.Drawing.Size(79, 79);
-            this.square7.TabIndex = 0;
-            this.square7.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square8
-            // 
-            this.square8.Color = System.Drawing.Color.Empty;
-            this.square8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square8.Location = new System.Drawing.Point(94, 181);
-            this.square8.Margin = new System.Windows.Forms.Padding(5);
-            this.square8.Name = "square8";
-            this.square8.Number = 8;
-            this.square8.Size = new System.Drawing.Size(79, 79);
-            this.square8.TabIndex = 0;
-            this.square8.Click += new System.EventHandler(this.BoxClick_Event);
-            // 
-            // square5
-            // 
-            this.square5.Color = System.Drawing.Color.Empty;
-            this.square5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.square5.Location = new System.Drawing.Point(94, 93);
-            this.square5.Margin = new System.Windows.Forms.Padding(5);
-            this.square5.Name = "square5";
-            this.square5.Number = 5;
-            this.square5.Size = new System.Drawing.Size(79, 78);
-            this.square5.TabIndex = 0;
-            this.square5.Click += new System.EventHandler(this.BoxClick_Event);
             // 
             // N_Puzzle
             // 

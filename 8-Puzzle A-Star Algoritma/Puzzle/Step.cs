@@ -9,6 +9,7 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
     public class Step 
     {
         private Step _stage=null;
+        private Step _last = null;
         private int g = 0;
         private int[] basePuzzle;
         private int[] currentPuzzle;
@@ -121,11 +122,16 @@ namespace _8_Puzzle_A_Star_Algoritma.Puzzle
             }
 
             bak.Stage = s;
+            _last = s;
             bak.Stage.GScore = bak.GScore+1;
             return this;
         }
         public Step GetLast()
         {
+            if (_last!=null)
+            {
+                return _last;
+            }
             var test = Stage;
             var bak = this;
             while (test!=null)

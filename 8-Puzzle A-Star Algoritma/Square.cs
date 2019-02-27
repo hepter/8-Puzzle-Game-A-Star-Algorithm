@@ -34,9 +34,9 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         public SquareState Pos { get; }
 
-        public Color Color
+        public Color BorderColor
         {
-            get => color == null ? Color.DeepSkyBlue : color;
+            get => color == null ? Color.Gray : color;
             set
             {
                 color = value;

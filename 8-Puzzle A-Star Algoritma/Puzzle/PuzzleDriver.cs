@@ -40,16 +40,16 @@ namespace _8_Puzzle_A_Star_Algoritma
             obje.Size = bak;
 
 
-            obje.BringToFront();
+            //obje.BringToFront();
             //Application.DoEvents();
-            Thread.Sleep(20);
+            //Thread.Sleep(20);
             obje.Parent = obje.Parent.Parent;
 
-            obje.Location = Point.Add(coor, new Size(-33, -85)); //-2,-9//Box Move Offset
+            obje.Location = Point.Add(coor, new Size(-24, -64)); //-2,-9//Box Move Offset
 
             obje.BringToFront();
             //Application.DoEvents();
-            // Thread.Sleep(3000);
+            //Thread.Sleep(3000);
             return container;
         }
 
@@ -93,7 +93,7 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         public static void SlideMove(this Square obje)
         {
-            obje.Color = Color.DarkOrange;
+            obje.BorderColor = Color.Blue;
             Point NewlocOrder = obje.GetEmptyWayLocOrder();
             Point locOrder = obje.GetLocOrder();
 
@@ -109,7 +109,7 @@ namespace _8_Puzzle_A_Star_Algoritma
             else if (locOrder.X == NewlocOrder.X && locOrder.Y + 1 == NewlocOrder.Y)
                 obje.SlideMove(MoveWay.Down);
 
-            obje.Color = Color.DeepSkyBlue;
+            obje.BorderColor = Color.Gray;
         }
 
         public static Point GetEmptyWayLocOrder(this Square obje)
@@ -286,18 +286,18 @@ namespace _8_Puzzle_A_Star_Algoritma
 
             aStarList.Add(rootNode);
 
-
-            while (!aStarList.IsCompleted())
+            int FScore =0;
+            while (!aStarList.IsCompleted())//!aStarList.IsCompleted()
             {
                 Step bestNodeRoot = aStarList.GetBestAndDeleteNode;
                 NodeTickEvent(null, null);
-                NodeDepthEvent( bestNodeRoot.GetNodeDepth(),null);
-
+                NodeDepthEvent(bestNodeRoot.GetNodeDepth(), null);
+             
                 AddedNodes.Add(bestNodeRoot.GetLast());
 
                 for (int i = 0; i < 4; i++)
                 {
-                    Step newStep = bestNodeRoot.GetLast().Move((MoveWay) i);
+                    Step newStep = bestNodeRoot.GetLast().Move((MoveWay)i);
                     if (newStep.IsMoved && !AddedNodes.ContainsNode(newStep))
                     {
                         aStarList.Add(bestNodeRoot.Clone().Add(newStep));
@@ -305,7 +305,7 @@ namespace _8_Puzzle_A_Star_Algoritma
                     }
                     else
                     {
-                        OutputDebugString($"{"Cannot move " + (MoveWay) i,-18}");
+                        OutputDebugString($"{"Cannot move " + (MoveWay)i,-18}");
                     }
                 }
 
