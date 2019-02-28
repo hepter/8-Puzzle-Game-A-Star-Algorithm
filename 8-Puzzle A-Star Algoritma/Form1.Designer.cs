@@ -167,7 +167,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(191, 99);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(187, 58);
+            this.button3.Size = new System.Drawing.Size(175, 58);
             this.button3.TabIndex = 7;
             this.button3.Text = "Otomatik Çöz";
             this.button3.UseVisualStyleBackColor = false;
@@ -197,7 +197,7 @@
             this.panel3.Controls.Add(this.n_Puzzle1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(387, 430);
             this.panel3.TabIndex = 11;
@@ -265,7 +265,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(467, 135);
+            this.label7.Location = new System.Drawing.Point(436, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 22);
             this.label7.TabIndex = 10;
@@ -277,7 +277,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label6.Location = new System.Drawing.Point(639, 135);
+            this.label6.Location = new System.Drawing.Point(608, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 22);
             this.label6.TabIndex = 10;
@@ -289,7 +289,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(397, 107);
+            this.label4.Location = new System.Drawing.Point(366, 109);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(236, 22);
             this.label4.TabIndex = 10;
@@ -301,7 +301,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(639, 107);
+            this.label3.Location = new System.Drawing.Point(608, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 22);
             this.label3.TabIndex = 10;
