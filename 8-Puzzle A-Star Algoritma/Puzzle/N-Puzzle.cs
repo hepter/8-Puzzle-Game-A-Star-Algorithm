@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace _8_Puzzle_A_Star_Algoritma
@@ -24,25 +25,24 @@ namespace _8_Puzzle_A_Star_Algoritma
                 for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j < 3; j++)
-                    {
                         list.Add((tableLayoutPanel1?.GetControlFromPosition(j, i) as Square)?.Number ?? 0);
-                    }
                 }
-
                 return list.ToArray();
             }
         }
 
-        Color SetSquareDefaultColor
+        public List<Square> GetSquareList
+        {
+            get { return tableLayoutPanel1.Controls.OfType<Square>().ToList(); }
+        }
+
+        private Color SetSquareDefaultColor
         {
             set
             {
                 foreach (Square sq in tableLayoutPanel1.Controls.OfType<Square>())
-                {
                     sq.BorderColor = value;
-                }
             }
-
         }
 
         public event EventHandler SlideEvent;
@@ -67,14 +67,13 @@ namespace _8_Puzzle_A_Star_Algoritma
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (j == 2 && i == 2)
-                    {
-                        continue;
-                    }
-
-                    tableLayoutPanel1.Controls.Add(list[i * 3 + j], j, i);
+                    string order = PuzzleDriver.GetBasePuzzleOrder()[i * 3 + j].ToString();
+                    var sq = list.SingleOrDefault(a => Regex.Replace(a.Name, "\\D*", "") == order);
+                    if (sq != null)
+                        tableLayoutPanel1.Controls.Add(sq, j, i);
                 }
             }
+            
         }
 
         public void Shuffle()
@@ -112,13 +111,13 @@ namespace _8_Puzzle_A_Star_Algoritma
                         tableLayoutPanel1.Controls.Add(obj, i, j);
                     }
                 }
-            } while (!isSolvable(PuzzleDriver.BasePuzzleOrder, GetSequentalOrder));
+            } while (!isSolvable(PuzzleDriver.GetBasePuzzleOrder(), GetSequentalOrder));
         }
 
         private void BoxClick_Event(object sender, EventArgs e)
         {
             var s = sender as Square;
-            s.BorderColor = Color.Blue   ;
+            s.BorderColor = Color.Blue;
             IsBusy = true;
             s.SlideMove();
             IsBusy = false;
@@ -163,22 +162,6 @@ namespace _8_Puzzle_A_Star_Algoritma
 
             return new Point(2, 2);
         }
-
-
-        private void N_Puzzle_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void square8_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void square5_Load(object sender, EventArgs e)
-        {
-        }
+        
     }
 }

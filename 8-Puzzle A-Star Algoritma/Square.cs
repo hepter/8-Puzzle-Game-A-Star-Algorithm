@@ -36,7 +36,7 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         public Color BorderColor
         {
-            get => color == null ? Color.Gray : color;
+            get => color == null || color.IsEmpty ? Color.Gray : color;
             set
             {
                 color = value;
@@ -58,20 +58,10 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         private void ctl_Click(object sender, EventArgs e)
         {
-            // SlideEvent(this,EventArgs.Empty);
             InvokeOnClick(this, EventArgs.Empty);
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

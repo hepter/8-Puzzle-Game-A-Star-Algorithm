@@ -164,7 +164,7 @@
             // 
             // square1
             // 
-            this.square1.BorderColor = System.Drawing.Color.Empty;
+            this.square1.BorderColor = System.Drawing.Color.Gray;
             this.square1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square1.Location = new System.Drawing.Point(5, 5);
             this.square1.Margin = new System.Windows.Forms.Padding(5);
@@ -176,7 +176,7 @@
             // 
             // square2
             // 
-            this.square2.BorderColor = System.Drawing.Color.Empty;
+            this.square2.BorderColor = System.Drawing.Color.Gray;
             this.square2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square2.Location = new System.Drawing.Point(95, 5);
             this.square2.Margin = new System.Windows.Forms.Padding(5);
@@ -188,7 +188,7 @@
             // 
             // square3
             // 
-            this.square3.BorderColor = System.Drawing.Color.Empty;
+            this.square3.BorderColor = System.Drawing.Color.Gray;
             this.square3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square3.Location = new System.Drawing.Point(185, 5);
             this.square3.Margin = new System.Windows.Forms.Padding(5);
@@ -200,7 +200,7 @@
             // 
             // square4
             // 
-            this.square4.BorderColor = System.Drawing.Color.Empty;
+            this.square4.BorderColor = System.Drawing.Color.Gray;
             this.square4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square4.Location = new System.Drawing.Point(5, 94);
             this.square4.Margin = new System.Windows.Forms.Padding(5);
@@ -212,7 +212,7 @@
             // 
             // square6
             // 
-            this.square6.BorderColor = System.Drawing.Color.Empty;
+            this.square6.BorderColor = System.Drawing.Color.Gray;
             this.square6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square6.Location = new System.Drawing.Point(185, 94);
             this.square6.Margin = new System.Windows.Forms.Padding(5);
@@ -224,7 +224,7 @@
             // 
             // square7
             // 
-            this.square7.BorderColor = System.Drawing.Color.Empty;
+            this.square7.BorderColor = System.Drawing.Color.Gray;
             this.square7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square7.Location = new System.Drawing.Point(5, 183);
             this.square7.Margin = new System.Windows.Forms.Padding(5);
@@ -236,7 +236,7 @@
             // 
             // square8
             // 
-            this.square8.BorderColor = System.Drawing.Color.Empty;
+            this.square8.BorderColor = System.Drawing.Color.Gray;
             this.square8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square8.Location = new System.Drawing.Point(95, 183);
             this.square8.Margin = new System.Windows.Forms.Padding(5);
@@ -248,7 +248,7 @@
             // 
             // square5
             // 
-            this.square5.BorderColor = System.Drawing.Color.Empty;
+            this.square5.BorderColor = System.Drawing.Color.Gray;
             this.square5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.square5.Location = new System.Drawing.Point(95, 94);
             this.square5.Margin = new System.Windows.Forms.Padding(5);
@@ -277,7 +277,6 @@
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "N_Puzzle";
             this.Size = new System.Drawing.Size(313, 337);
-            this.Load += new System.EventHandler(this.N_Puzzle_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);

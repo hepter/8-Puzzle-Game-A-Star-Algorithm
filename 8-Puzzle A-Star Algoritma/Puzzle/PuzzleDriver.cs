@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -11,11 +12,24 @@ namespace _8_Puzzle_A_Star_Algoritma
 {
     public static class PuzzleDriver
     {
-        public static readonly int[] BasePuzzleOrder = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+        private static int[] basePuzzleOrder = {1, 2, 3, 4, 5, 6, 7, 8, 0};
+        private static readonly Size BoxCalibrateOffset = new Size(-29, -70);
+
         public static Heuristic HeuristicMethod;
 
         private static int SleepInterval = 1;
         private static int speed = 2;
+
+        public static int[] GetBasePuzzleOrder()
+        {
+            return basePuzzleOrder;
+        }
+
+        public static void SetBasePuzzleOrder(int[] value)
+        {
+            basePuzzleOrder = value;
+        }
+
         public static event EventHandler NodeTickEvent;
         public static event EventHandler NodeDepthEvent;
 
@@ -39,17 +53,9 @@ namespace _8_Puzzle_A_Star_Algoritma
             obje.Dock = obje.Dock == DockStyle.None ? obje.Dock : DockStyle.None;
             obje.Size = bak;
 
-
-            //obje.BringToFront();
-            //Application.DoEvents();
-            //Thread.Sleep(20);
             obje.Parent = obje.Parent.Parent;
-
-            obje.Location = Point.Add(coor, new Size(-24, -64)); //-2,-9//Box Move Offset
-
+            obje.Location = Point.Add(coor, BoxCalibrateOffset); //-2,-9//Box Move Offset
             obje.BringToFront();
-            //Application.DoEvents();
-            //Thread.Sleep(3000);
             return container;
         }
 
@@ -254,8 +260,9 @@ namespace _8_Puzzle_A_Star_Algoritma
 
         public static List<MoveWay> GetSolveViaAStar(this N_Puzzle puzzle)
         {
-            return AStarSolve(BasePuzzleOrder, puzzle.GetSequentalOrder);
+            return AStarSolve(GetBasePuzzleOrder(), puzzle.GetSequentalOrder);
         }
+
 
         public static MoveWay ReverseMoveWay(this MoveWay way)
         {
@@ -285,19 +292,28 @@ namespace _8_Puzzle_A_Star_Algoritma
             StepContainer AddedNodes = new StepContainer();
 
             aStarList.Add(rootNode);
+            List<long> time1 = new List<long>();
+            List<long> time2 = new List<long>();
+            Stopwatch w = Stopwatch.StartNew();
 
-            int FScore =0;
-            while (!aStarList.IsCompleted())//!aStarList.IsCompleted()
+            int FScore = 0;
+            for (;;)
             {
+                time1.Add(w.ElapsedMilliseconds);
+                w = Stopwatch.StartNew();
+
                 Step bestNodeRoot = aStarList.GetBestAndDeleteNode;
                 NodeTickEvent(null, null);
                 NodeDepthEvent(bestNodeRoot.GetNodeDepth(), null);
-             
+
                 AddedNodes.Add(bestNodeRoot.GetLast());
 
+
+                time2.Add(w.ElapsedMilliseconds);
+                w = Stopwatch.StartNew();
                 for (int i = 0; i < 4; i++)
                 {
-                    Step newStep = bestNodeRoot.GetLast().Move((MoveWay)i);
+                    Step newStep = bestNodeRoot.GetLast().Move((MoveWay) i);
                     if (newStep.IsMoved && !AddedNodes.ContainsNode(newStep))
                     {
                         aStarList.Add(bestNodeRoot.Clone().Add(newStep));
@@ -305,13 +321,19 @@ namespace _8_Puzzle_A_Star_Algoritma
                     }
                     else
                     {
-                        OutputDebugString($"{"Cannot move " + (MoveWay)i,-18}");
+                        OutputDebugString($"{"Cannot move " + (MoveWay) i,-18}");
                     }
                 }
 
                 //OutputDebugString(new string('-',30));
+
+
+                if (aStarList.IsCompleted())
+                    break;
             }
 
+            Console.WriteLine("Solve hardness");
+            Console.WriteLine(time1.Average() / time2.Average());
             return aStarList.GetCompletedRoot().GetSolve().Select(a => a).Reverse().ToList();
         }
 

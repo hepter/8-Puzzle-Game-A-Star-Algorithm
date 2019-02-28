@@ -40,6 +40,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.n_Puzzle1 = new _8_Puzzle_A_Star_Algoritma.N_Puzzle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,7 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.n_Puzzle1 = new _8_Puzzle_A_Star_Algoritma.N_Puzzle();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,7 +62,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(3, 42);
+            this.button2.Location = new System.Drawing.Point(3, 32);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(172, 33);
             this.button2.TabIndex = 6;
@@ -75,7 +76,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(3, 85);
+            this.button1.Location = new System.Drawing.Point(3, 62);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(172, 30);
             this.button1.TabIndex = 7;
@@ -92,7 +93,7 @@
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(7, 24);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(592, 188);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(742, 227);
             this.flowLayoutPanel1.TabIndex = 8;
             // 
             // groupBox1
@@ -102,7 +103,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 10.2F, System.Drawing.FontStyle.Bold);
             this.groupBox1.Location = new System.Drawing.Point(185, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(417, 129);
+            this.groupBox1.Size = new System.Drawing.Size(580, 89);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Yöntem";
@@ -111,9 +112,10 @@
             // 
             this.radioButton2.AutoSize = true;
             this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(6, 27);
+            this.radioButton2.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton2.Location = new System.Drawing.Point(15, 37);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(202, 25);
+            this.radioButton2.Size = new System.Drawing.Size(218, 27);
             this.radioButton2.TabIndex = 0;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Uzaklık (Manhattan)";
@@ -123,9 +125,10 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(6, 79);
+            this.radioButton1.Font = new System.Drawing.Font("Constantia", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.radioButton1.Location = new System.Drawing.Point(337, 37);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(190, 25);
+            this.radioButton1.Size = new System.Drawing.Size(207, 27);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.Text = "Konum (Hamming)";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -157,13 +160,14 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button3.BackColor = System.Drawing.Color.Green;
+            this.button3.Enabled = false;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Font = new System.Drawing.Font("Constantia", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(3, 132);
+            this.button3.Location = new System.Drawing.Point(191, 99);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(172, 50);
+            this.button3.Size = new System.Drawing.Size(187, 58);
             this.button3.TabIndex = 7;
             this.button3.Text = "Otomatik Çöz";
             this.button3.UseVisualStyleBackColor = false;
@@ -183,7 +187,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1007, 430);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1157, 430);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // panel3
@@ -207,6 +211,20 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Puzzle";
             // 
+            // n_Puzzle1
+            // 
+            this.n_Puzzle1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.n_Puzzle1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.n_Puzzle1.IsBusy = false;
+            this.n_Puzzle1.Location = new System.Drawing.Point(0, 30);
+            this.n_Puzzle1.Margin = new System.Windows.Forms.Padding(0);
+            this.n_Puzzle1.Name = "n_Puzzle1";
+            this.n_Puzzle1.Size = new System.Drawing.Size(384, 393);
+            this.n_Puzzle1.TabIndex = 5;
+            this.n_Puzzle1.Load += new System.EventHandler(this.n_Puzzle1_Load);
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -217,6 +235,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.groupBox1);
@@ -224,7 +243,7 @@
             this.panel1.Location = new System.Drawing.Point(387, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(620, 430);
+            this.panel1.Size = new System.Drawing.Size(770, 430);
             this.panel1.TabIndex = 12;
             // 
             // panel2
@@ -235,9 +254,9 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.flowLayoutPanel1);
-            this.panel2.Location = new System.Drawing.Point(3, 202);
+            this.panel2.Location = new System.Drawing.Point(3, 163);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(612, 215);
+            this.panel2.Size = new System.Drawing.Size(762, 254);
             this.panel2.TabIndex = 12;
             // 
             // label7
@@ -245,7 +264,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label7.Location = new System.Drawing.Point(257, 163);
+            this.label7.Location = new System.Drawing.Point(536, 135);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(166, 22);
             this.label7.TabIndex = 10;
@@ -257,7 +276,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label6.Location = new System.Drawing.Point(429, 163);
+            this.label6.Location = new System.Drawing.Point(708, 135);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 22);
             this.label6.TabIndex = 10;
@@ -269,7 +288,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label4.Location = new System.Drawing.Point(187, 135);
+            this.label4.Location = new System.Drawing.Point(466, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(236, 22);
             this.label4.TabIndex = 10;
@@ -281,7 +300,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.label3.Location = new System.Drawing.Point(429, 135);
+            this.label3.Location = new System.Drawing.Point(708, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 22);
             this.label3.TabIndex = 10;
@@ -302,28 +321,29 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // n_Puzzle1
+            // button5
             // 
-            this.n_Puzzle1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.n_Puzzle1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.n_Puzzle1.IsBusy = false;
-            this.n_Puzzle1.Location = new System.Drawing.Point(0, 30);
-            this.n_Puzzle1.Margin = new System.Windows.Forms.Padding(0);
-            this.n_Puzzle1.Name = "n_Puzzle1";
-            this.n_Puzzle1.Size = new System.Drawing.Size(384, 393);
-            this.n_Puzzle1.TabIndex = 5;
-            this.n_Puzzle1.Load += new System.EventHandler(this.n_Puzzle1_Load);
+            this.button5.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(3, 99);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(172, 58);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Son Durumu Düzenle";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1025, 447);
+            this.ClientSize = new System.Drawing.Size(1175, 447);
             this.Controls.Add(this.tableLayoutPanel2);
             this.DoubleBuffered = true;
+            this.MaximumSize = new System.Drawing.Size(10000, 494);
             this.MinimumSize = new System.Drawing.Size(1043, 494);
             this.Name = "Form1";
             this.Text = "8-Puzzle Oyunu Ve A* Algoritması - Mustafa Kuru";
@@ -362,6 +382,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button5;
     }
 }
 
