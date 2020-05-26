@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.Xpo;
 using _8_Puzzle_A_Star_Algoritma.Puzzle;
 
 namespace _8_Puzzle_A_Star_Algoritma
